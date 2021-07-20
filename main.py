@@ -15,7 +15,7 @@ class App():
         self.outputDir = os.path.join("output")
 
     def run(self):
-        parser = self.ArgParser(description='Extract all valid email from given data', add_help=True, exit_on_error=False)
+        parser = self.ArgParser(description="Extract all valid email from given data", add_help=True, exit_on_error=False)
         parser.add_argument("-i", "--input", dest="inputfile", metavar="\b", type=str, help="a .txt input file", required=True)
         try:
             if len(sys.argv) == 1:
@@ -39,7 +39,7 @@ class App():
                 with open(file=os.path.join(self.outputDir, output_file), mode="w", encoding="utf-8") as f:
                     for n in range(len(self.extractedEmail)):
                         f.write(f"{self.extractedEmail[n]}\n")
-                        print(n, self.extractedEmail[n])
+                        print(n + 1, self.extractedEmail[n])
                     f.close()
                 time_end = time.perf_counter()
                 print()
